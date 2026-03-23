@@ -13,5 +13,22 @@
         "types/node": "^25.3.5",
         "allure-playwright": "^2.0.0",
         "typescript": "^5.3.3"
-    }
+    },
+    "description": "Playwright | TypeScript",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/piotrapl/playwright-typescript-entities-api-ui-tests.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/piotrapl/playwright-typescript-entities-api-ui-tests/issues"
+    },
+    "homepage": "https://github.com/piotrapl/playwright-typescript-entities-api-ui-tests#readme"
 }
