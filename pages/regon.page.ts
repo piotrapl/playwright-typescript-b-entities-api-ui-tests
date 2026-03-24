@@ -49,7 +49,7 @@ export class RegonPage {
 
         const messageLocator  = this.page.locator('#divInfoKomunikat');
 
-        await message.waitFor();
+        await mesageLocatr.waitFor();
 
         return await messageLocator.innerText();
     } 
