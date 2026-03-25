@@ -11,12 +11,12 @@ import { ENV } from './utils/env';
 export default defineConfig ({
 
     testDir: './tests',
-
-    use {
+    
+    use: {
 
         baseURL: ENV.baseUrl,
 
-        browsername: 'chromium',
+        browserName: 'chromium',
         
         headless: true,
 
