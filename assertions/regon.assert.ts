@@ -13,9 +13,9 @@ export class RegonAssertions {
     // expect - funkcja z biblioteki Playwright, która służy do tworzenia asercji w testach.
     assert() {
 
-        expect(this.response.status).toBe(200);
+        expect(this.apiResponse.status).toBe(200);
 
-        expect (this.response.body).toEqual({ d: "" });
+        expect (this.apiResponse.body).toEqual({ d: "" });
 
         expect(this.uiMessage).toMatch(/Nie znaleziono/);
 
