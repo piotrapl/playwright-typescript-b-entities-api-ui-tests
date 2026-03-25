@@ -4,8 +4,9 @@ import test from '@playwright/test';
 
 export class RegonFlow {
 
-
+    constructor ( private regonPage: RegonPage,)
 
     await test.step('Otwórz stronę wyszukiwania po n-rze Regon', async () => {
         await this.regonPage.open();
     });
+
