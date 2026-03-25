@@ -2,5 +2,10 @@ import { expect } from '@playwright/test';
 import { ApiResponse} from '../types/api.types';
 
 export class RegonAssertions {
-    static assertStatusCode(response: ApiResponse, expectedStatus: number) {
-        expect(response.status).toBe(expectedStatus);
+    
+    assert() {
+
+        expect(this.response.status).toBe(200);
+
+        expect (this.response.body).toEqual({ d: "" });
+    }
