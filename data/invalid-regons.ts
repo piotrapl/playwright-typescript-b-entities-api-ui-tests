@@ -2,7 +2,7 @@
 // do sprawdzania w testach, jak aplikacja radzi sobie 
 // gdy podamy REGON, który nie istnieje w systemach GUS
 // Typ danych invalidRegons - tablica mogąca zawierać różne wartości,
-export const nonExistingRegons = [
+export const invalidRegons = [
 
     {
         regon: '162537906',
