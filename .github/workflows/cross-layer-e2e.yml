@@ -3,8 +3,16 @@
 
 name: CI - Playwright Cross-Layer Testing
 
-# on - to jest sekcja, która definiuje, kiedy workflow ma być uruchamiany.
+# sekcja, która definiuje, kiedy workflow ma być uruchamiany.
 
 on:
  push:
  pull_request:
+
+# sekcja definiująca zadania do wykonania w ramach workflow.
+jobs:
+
+# zadanie testowe:
+  test:
+# runs-on -  sekcja, która definiuje, na jakim systemie (OS) ma być uruchamiane zadanie. 
+    runs-on: ubuntu-latest
