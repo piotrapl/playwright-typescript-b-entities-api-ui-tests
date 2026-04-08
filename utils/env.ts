@@ -1,4 +1,4 @@
-// To jest plik z konfiguracją środowiskową dla aplikacji. Możemy dodać tu 
+// plik z konfiguracją środowiskową dla aplikacji. Możemy dodać tu 
 // różne środowiska jak produkcyjne itp.
 
 // Fraza "export const ENVIRONMENTS":
