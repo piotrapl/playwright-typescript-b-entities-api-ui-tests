@@ -40,7 +40,19 @@ export class NipPage {
 
         const responseBody = await response.json();
 
-        
+        // metoda searchByNip zwraca obiekt ApiResponse - zawiera status response i treść tego response (body).
+        return {
+            status: response.status(),
+            body: responseBody
+        };
+    }     
 
+    async captureMessage(): Promise<string> {
+    // Zakładamy, że komunikat jest wyświetlany w elemencie o id 'divInfoKomunikat'
+        const messageLocator = this.page.locator('#divInfoKomunikat');
+        await messageLocator.waitFor(); // Czekamy, aż element będzie dostępny
 
+            return await messageLocator.innerText();
+    }
 
+}
