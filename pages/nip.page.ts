@@ -17,4 +17,21 @@ export class NipPage {
 // waitFor - metoda - czeka, aż element będzie dostępny na stronie, zanim przejdzie się do kolejnych kroków testu.
         await this.page.getByLabel('NIP', { exact: true }).waitFor();
     }
-}
+
+    async searchByNip(nip: string): Promise<ApiResponse> {
+        // nipInput - element strony - pole do wprowadzania NIP-u
+        const nipInput = this.page.getByLabel('NIP', { exact: true });
+
+        await nipInput.fill(nip);
+
+        // definicja obietnicy (promise), która będzie czekać na odpowiedź API, 
+        // spełniającą określ. warunki (URL, użytwa metoda HTTP)
+        // obietnica/promise - mechanizm obsługi operacji asynchronicznych, np. oczekiwana na odpowiedź z serwera.
+        
+        const responsePromise = this.page.waitForResponse(    
+        response =>
+            response.url.includes('daneSzukaj') &&
+            response.request.method() === 'POST'
+    
+};
+
