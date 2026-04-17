@@ -30,8 +30,8 @@ export class NipPage {
 
         const responsePromise = this.page.waitForResponse(    
         response =>
-            response.url.includes('daneSzukaj') &&
-            response.request.method() === 'POST'    
+            response.url().includes('daneSzukaj') &&
+            response.request().method() === 'POST'    
         );
 
         await this.page.locator('#btnSzukaj').click();
