@@ -23,6 +23,16 @@ export class NipFlow {
 
     let apiResponse;
 
-    await test.step('Pobierz wiadomość z UI`, async () => {
-        apiResponse = await this.nipPage.searchByNip(nip);
+    await test.step('wpisz NIP, kliknij Szukaj i pobierz response z backendu', async () => {
+        apiResponse = await this.nipPage.searchByNip(nip);  
     });
+
+    let uiMessage;
+
+    await test.step('Pobierz wiadomość z UI', async () => {
+        uiMessage = await this.nipPage.captureMessage();
+    });
+
+    }
+
+} 
