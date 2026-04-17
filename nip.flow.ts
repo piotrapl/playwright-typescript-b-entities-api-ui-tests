@@ -11,3 +11,14 @@ import { NipAssertions } from '../assertions/nip.assert';
 export class NipFlow {
 
     constructor (private nipPage: NipPage) {}
+
+    async searchInvalidNip(nip: string) {
+
+    // test - funkcja z biblioteki Playwright, która pozwala definiować testy.
+    // test.step - metoda pozwalająca na grupowanie kroków testu w logiczne sekcje,
+
+    await test.step('Otwórz stronę wyszukiwania po NIP-ie', async () => {
+            await this.nipPage.open();
+    }); 
+
+        let apiResponse;
