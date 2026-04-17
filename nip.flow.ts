@@ -21,4 +21,8 @@ export class NipFlow {
             await this.nipPage.open();
     }); 
 
-        let apiResponse;
+    let apiResponse;
+
+    await test.step('Pobierz wiadomość z UI`, async () => {
+        apiResponse = await this.nipPage.searchByNip(nip);
+    });
