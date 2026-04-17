@@ -39,12 +39,12 @@ Senarios implemented:
 
 • Easily scalable → new identifiers (already scaled by adding new scenario for entity search by NIP number)
 
-##  What can be improved
-### 1. Unify REGON + NIP search logic
+##  What can be improved ?
+#### 1. Unify REGON + NIP search logic
 • Introduce a single search method (type: 'regon' | 'nip')
 • Remove duplicated logic across flows/pages
 Improves scalability and maintainability
-### 2. Introduce shared SearchPage
+#### 2. Introduce shared SearchPage
 • Replace multiple Page Objects with one reusable component
 • Centralize selectors and actions for all identifiers
 • Simplifies structure and future extensions
