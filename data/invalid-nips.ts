@@ -1,6 +1,6 @@
-// data/nonexisting-nips.ts
+// data/invalid-nips.ts
 
-export const nonExistingNips = [
+export const invalidNips = [
 
     {
         nip: '0755056162',
