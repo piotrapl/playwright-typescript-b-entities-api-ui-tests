@@ -64,5 +64,12 @@ Senarios implemented:
 • Add steps, API data, and attachments
 • Improve debugging and traceability
 • Stronger presentation in portfolio
-### 7. Add API-only test layer
-• Test backend independently of UI
+
+## How to run the tests
+npm install
+npx playwright install --with-deps
+npx playwright test
+
+Optional:
+npx playwright test tests/nip.spec.ts   # run specific test
+npx playwright show-report              # open HTML report
