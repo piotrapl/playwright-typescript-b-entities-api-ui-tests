@@ -12,6 +12,7 @@ import { NipFlow } from '../flows/nip.flow';
 
 type Fixtures = {
     regonFlow: RegonFlow;
+    nipFlow: NipFlow;
 }
 
 // Tu - eksportujemy naszą rozszerzoną wersję testu, 

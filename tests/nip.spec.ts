@@ -1,10 +1,5 @@
-import { test as base } from '@playwright/test';
+import { test } from '../fixtures/test-fixtures';
 import { invalidNips } from '../data/invalid-nips';
-import { nipFlow } from '../fixtures/test-fixtures';
-
-const test = base.extend({
-    nipFlow: nipFlow,
-});
 
 for (const dataset of invalidNips) {
 
