@@ -10,39 +10,31 @@ Pozwala to wykrywać błędy szybciej i zwiększać wiarygodność testów.
 Projekt zawiera również raportowanie **Allure** z artefaktami testowymi (screenshots, trace).
 
 ---
+## Core Features and Implementation Details
+• Playwright + TypeScript test framework for cross-layer (UI + API) validation  
+• Tests real public business entities search system (gus.pl)  
+• Implements **micro E2E pattern**: UI action → backend API → UI validation  
 
-## Project structure
+Senarios implemented:
+• Scenario 1: non-existent REGON → API `{ d: "" }` + UI "Nie znaleziono podmiotu"  
+• Scenario 2: non-existent NIP → API `{ d: "" }` + UI "Nie znaleziono podmiotu"  
 
-```text
-playwright-typescript-entities-ui-api-tests/
-│
-├─ .github/
-│   └─ workflows/
-│       └─ cross-layer-e2e.yml        # CI pipeline (optional)
-├─ api/
-│   └─ regon.api.ts
-├─ assertions/
-│   └─ regon.asert.ts
-├─ data/
-│   └─ [_graphic files (screenshots etc.)_]
-├─ docs/
-│   └─ invalid-regons.ts
-├─ fixtures/
-│   └─ test-fixtures.ts          # shared Playwright fixtures
-├─ flows/
-│   └─ regon.flow.ts
-├─ pages/
-│   └─ regon.page.ts             # Page Object for REGON search
-├─ tests/
-│   └─ negative/
-│       └─ regon-cross-layer-negative.spec.ts
-├─ types/
-│   └─ api.types.ts 
-├─ utils/
-│   └─ env.ts                    # environment configuration
-│
-├─ playwright.config.ts
-├─ package.json
-├─ package-lock.json
-└─ tsconfig.json
-```
+• Uses **Playwright fixtures as Dependency Injection (DI)**  
+• Clean separation: Tests → Flows → Pages → Assertions → Data  
+• Flows layer encapsulates business logic  
+
+• Page Objects handle:
+  - UI actions (fill, click)
+  - API interception (`waitForResponse`)
+• Assertions validate both UI + API response consistency  
+
+• Fully parallel execution using Playwright workers  
+• Each test runs in isolated browser context (no shared state)  
+
+• Typed API responses (TypeScript)  
+• Data-driven testing (datasets contain REGON, NIP numbers - valid but with no entity relation)  
+
+• Screenshots attached automatically after each test  
+• Trace files available for debugging failures  
+
+• Easily scalable → new identifiers (already scaled by adding new scenario for entity search by NIP number)  
