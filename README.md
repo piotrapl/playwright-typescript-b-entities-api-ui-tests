@@ -40,29 +40,29 @@ Senarios implemented:
 • Easily scalable → new identifiers (already scaled by adding new scenario for entity search by NIP number)
 
 ##  What can be improved ?
-#### 1. Unify REGON + NIP search logic
+### 1. Unify REGON + NIP search logic
 • Introduce a single search method (type: 'regon' | 'nip')
 • Remove duplicated logic across flows/pages
-Improves scalability and maintainability
-#### 2. Introduce shared SearchPage
+• Improve scalability and maintainability
+### 2. Introduce shared SearchPage
 • Replace multiple Page Objects with one reusable component
 • Centralize selectors and actions for all identifiers
 • Simplifies structure and future extensions
-3. Strengthen TypeScript typing
+### 3. Strengthen TypeScript typing
 • Use generic API types (ApiResponse<T>)
 • Eliminate any and enforce strict typing
 • Improves reliability and developer experience
-4. Improve selector strategy
+### 4. Improve selector strategy
 • Prefer getByRole, getByLabel over #id
 • Make tests more resilient to UI changes
 • Reduce flakiness and maintenance cost
-5. Add positive test scenarios
+### 5. Add positive test scenarios
 • Cover valid REGON and NIP searches
 • Verify full UI + API data consistency
 • Increase real-world test coverage
-6. Extend reporting (Allure)
+### 6. Extend reporting (Allure)
 • Add steps, API data, and attachments
 • Improve debugging and traceability
 • Stronger presentation in portfolio
-7. Add API-only test layer
+### 7. Add API-only test layer
 • Test backend independently of UI
