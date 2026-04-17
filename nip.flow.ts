@@ -2,7 +2,7 @@
 // test - funkcja z biblioteki Playwright, która pozwala definiować testy. 
 
 // klasa NipFlow -  będzie zawierać metody do wykonywania różnych kroków w procesie wyszukiwania po NIP. 
-// Klasa ta będzie korzystać z: 1. obiektu NipPage do interakcji z elementami strony 
+// klasa ta będzie korzystać z: 1. obiektu NipPage do interakcji z elementami strony 
 // 2. z obiektu NipAssertions do sprawdzania wyników testów.
 import { test } from '@playwright/test';
 import { NipPage } from '../pages/nip.page';
@@ -32,6 +32,8 @@ export class NipFlow {
     await test.step('Pobierz wiadomość z UI', async () => {
         uiMessage = await this.nipPage.captureMessage();
     });
+
+    return new NipAssertions(uiMessage!, apiResponse!);
 
     }
 
