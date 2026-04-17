@@ -27,11 +27,20 @@ export class NipPage {
         // definicja obietnicy (promise), która będzie czekać na odpowiedź API, 
         // spełniającą określ. warunki (URL, użytwa metoda HTTP)
         // obietnica/promise - mechanizm obsługi operacji asynchronicznych, np. oczekiwana na odpowiedź z serwera.
-        
+
         const responsePromise = this.page.waitForResponse(    
         response =>
             response.url.includes('daneSzukaj') &&
-            response.request.method() === 'POST'
-    
-};
+            response.request.method() === 'POST'    
+        );
+
+        await this.page.locator('#btnSzukaj').click();
+
+        const response = await responsePromise;
+
+        const responseBody = await response.json();
+
+        
+
+
 
