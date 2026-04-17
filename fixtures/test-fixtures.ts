@@ -15,7 +15,9 @@ type Fixtures = {
     nipFlow: NipFlow;
 }
 
-// Tu - eksportujemy naszą rozszerzoną wersję testu, 
+// test - to funkcja, która pozwala nam definiować nasze własne testy, ozszerzenie bazowego testu z Playwright.
+
+// Tu - eksportujemy naszą rozszerzoną wersję test, 
 // która zawiera nasze własne fixture'y. Wtedy możemy korzystać z nich w naszych testach, 
 // importując ten plik i używając `test` zamiast `base`.
 
@@ -34,7 +36,15 @@ export const test = base.extend<Fixtures>({
 
         await use(regonFlow);
 
-    }
+    },
+// nipFlow: async ({ page }, use) => { - to kolejne fixture, które tworzy instancję klasy `NipPage` i `NipFlow`, a następnie udostępnia `nipFlow` do użycia w testach. Dzięki temu możemy korzystać z metod i funkcji zdefiniowanych w `NipFlow` w naszych testach, które importują ten fixture.
+    nipFlow: async ({ page }, use) => {
+    
+    const nipPage = new NipPage(page);
+    const nipFlow = new NipFlow(nipPage);
+
+    await use(nipFlow);
+  }
 });
 
 
