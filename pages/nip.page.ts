@@ -26,7 +26,7 @@ export class NipPage {
 
         // definicja obietnicy (promise), która będzie czekać na odpowiedź API, 
         // spełniającą określ. warunki (URL, użytwa metoda HTTP)
-        // obietnica/promise - mechanizm obsługi operacji asynchronicznych, np. oczekiwana na odpowiedź z serwera.
+        // promise - mechanizm obsługi operacji asynchronicznych, np. oczekiwana na odpowiedź z serwera.
 
         const responsePromise = this.page.waitForResponse(    
         response =>
@@ -48,6 +48,7 @@ export class NipPage {
     }     
 
     async captureMessage(): Promise<string> {
+
     // Zakładamy, że komunikat jest wyświetlany w elemencie o id 'divInfoKomunikat'
         const messageLocator = this.page.locator('#divInfoKomunikat');
         await messageLocator.waitFor(); // Czekamy, aż element będzie dostępny
