@@ -14,7 +14,7 @@ export class NipAssertions {
     assert() {
     
 // Oczekujemy, że status odpowiedzi API będzie równy 200, co oznacza, że żądanie zostało przetworzone pomyślnie
-// expect - to jest funkcja, pozwalająca definiować asercje sprawdzające spełnianie warunków.
+// expect - funkcja pozwalająca definiować asercje sprawdzające spełnianie warunków.
         expect (this.apiResponse.status).toBe(200);
 
         expect (this.apiResponse.body).toEqual({ d: "" });
