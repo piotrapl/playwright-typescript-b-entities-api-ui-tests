@@ -6,10 +6,8 @@ name: CI - Playwright Cross-Layer Tests
 # sekcja definiująca, kiedy workflow ma być uruchamiany.
 
 on:
- # Wyłączono automatyczne CI na czas developmentu
- # push:
- # pull_request:
- workflow_dispatch
+ push:
+ pull_request:
 
 # sekcja definiująca zadania do wykonania w ramach workflow.
 jobs:
