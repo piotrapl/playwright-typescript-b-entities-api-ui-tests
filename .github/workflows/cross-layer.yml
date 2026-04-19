@@ -13,7 +13,7 @@ on:
 jobs:
 # zadanie testowe:
   test:
-# runs-on -  sekcja definiująca, na jakim systemie (OS) ma być uruchamiane zadanie. 
+# runs-on -  sekcja definiująca, na jakim systemie op. ma być uruchamiane zadanie. 
     runs-on: ubuntu-latest
 
     steps:
