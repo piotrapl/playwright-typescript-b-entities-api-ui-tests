@@ -13,8 +13,8 @@ export class NipAssertions {
 // assert - to jest metoda, która będzie wykonywać asercje dotyczące NIP-ów.
     assert() {
     
-// Oczekujemy, że status odpowiedzi API będzie równy 200, co oznacza, że żądanie zostało przetworzone pomyślnie
-// expect - funkcja pozwalająca definiować asercje sprawdzające spełnianie warunków.
+// Oczekujemy, że status odpowiedzi API będzie równy 200, tzn. żądanie zostało przetworzone pomyślnie
+// expect - funkcja pozwalająca definiować asercje.
         expect (this.apiResponse.status).toBe(200);
 
         expect (this.apiResponse.body).toEqual({ d: "" });

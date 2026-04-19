@@ -8,7 +8,7 @@ export class RegonPositiveAssertions {
     private apiResponse: ApiResponse
   ) {}
 
-  // assert() - metoda, która wykonuje szereg asercji w celu weryfikacji poprawności odpowiedzi API 
+  // assert(): metoda, która wykonuje szereg asercji w celu weryfikacji poprawności odpowiedzi API 
   // oraz UI po wyszukaniu wg podanego REGON-u.  
   async assert() {
     expect(this.apiResponse.status).toBe(200);
