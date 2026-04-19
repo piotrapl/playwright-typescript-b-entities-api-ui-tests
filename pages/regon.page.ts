@@ -18,6 +18,18 @@ export class RegonPage {
 
     constructor(public page: Page) { }
 
+    get messageLocator(): Locator {
+        return this.page.locator('#divInfoKomunikat');
+    }
+
+    get resultsTable(): Locator {
+        return this.page.locator('#divListaJednostek');
+    }
+
+    get resultsRows(): Locator {
+        return this.resultsTable.locator('tr').filter({ hasText: /\S/ });
+    }
+
     async open () {
         await this.page.goto(ENV.baseURL);
     }
