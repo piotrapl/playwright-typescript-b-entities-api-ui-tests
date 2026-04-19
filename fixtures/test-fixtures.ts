@@ -1,5 +1,6 @@
 // polecenia importujące różne moduły i klasy, które będziemy wykorzystywać w testach. 
-// Tu - importujemy test z biblioteki Playwright, allure z biblioteki allure-playwright oraz nasze własne klasy RegonPage i RegonFlow, które znajdują się w katalogu pages i flows.
+// Tu - importujemy test z biblioteki Playwright, allure z biblioteki allure-playwright 
+// i nasze własne klasy RegonPage i RegonFlow, 
 
 import { test as base } from '@playwright/test';
 import { allure } from 'allure-playwright'
