@@ -4,7 +4,6 @@
 name: CI - Playwright Cross-Layer Tests
 
 # sekcja definiująca, kiedy workflow ma być uruchamiany.
--
 on:
  push:
  pull_request:
