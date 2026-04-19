@@ -14,6 +14,7 @@ import { NipFlow } from '../flows/nip.flow';
 type Fixtures = {
     regonFlow: RegonFlow;
     nipFlow: NipFlow;
+    regonPositiveFlow: RegonPositiveFlow;
 }
 
 // test - to funkcja, która pozwala nam definiować nasze własne testy, ozszerzenie bazowego testu z Playwright.
