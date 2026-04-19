@@ -37,7 +37,14 @@ export const test = base.extend<Fixtures>({
         const regonFlow = new RegonFlow(regonPage);
 
         await use(regonFlow);
+    },
 
+    regonPositiveFlow: async ({ page }, use) => {
+
+        const regonPage = new RegonPage(page);
+        const regonPositiveFlow = new RegonPositiveFlow(regonPage);
+
+        await use(regonPositiveFlow);
     },
 // nipFlow: async ({ page }, use) => { - to kolejne fixture, które tworzy instancję klasy `NipPage` i `NipFlow`, a następnie udostępnia `nipFlow` do użycia w testach. Dzięki temu możemy korzystać z metod i funkcji zdefiniowanych w `NipFlow` w naszych testach, które importują ten fixture.
     nipFlow: async ({ page }, use) => {
