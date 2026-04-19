@@ -6,6 +6,7 @@ import { allure } from 'allure-playwright'
 
 import { RegonPage } from '../pages/regon.page';
 import { RegonFlow } from '../flows/regon.flow';
+import { RegonPositiveFlow } from '../flows/regon.positive.flow';
 
 import { NipPage } from '../pages/nip.page';
 import { NipFlow } from '../flows/nip.flow';
