@@ -1,5 +1,5 @@
 import { test } from '../../fixtures/test-fixtures';
-import { validRegons } from '../../data/positive/valid-regons';
+import { validRegons } from '../../data/valid-regons';
 
 for (const dataset of validRegons) {
   // definicja testu dla każdego zestawu danych z istniejącymi REGONami
