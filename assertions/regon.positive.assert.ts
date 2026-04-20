@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { ApiResponse } from '../types/api.types';
-import { RegonPage } from '../pages/egon.page';
+import { RegonPage } from '../pages/regon.page';
 
 export class RegonPositiveAssertions {
   constructor(
@@ -17,7 +17,7 @@ export class RegonPositiveAssertions {
     expect(body.d).toBeTruthy();
     expect(body.d).not.toBe('');
 
-    await expect(this.nipPage.messageLocator).toBeHidden();
+    await expect(this.regonPage.messageLocator).toBeHidden();
     await expect(this.regonPage.resultsTable).toBeVisible();
 
     const rowsCount = await this.regonPage.resultsRows.count();
