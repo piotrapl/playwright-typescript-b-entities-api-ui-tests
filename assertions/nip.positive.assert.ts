@@ -8,4 +8,14 @@ export class NipPositiveAssertions {
     private apiResponse: ApiResponse
   ) {}
 
+   async assert() {
+    expect(this.apiResponse.status).toBe(200);
+
+    const body = this.apiResponse.body as { d?: string };
+    expect(body.d).toBeTruthy();
+    expect(body.d).not.toBe('');
+
+    await expect(this.nipPage.messageLocator).toBeHidden();
+    await expect(this.nipPage.resultsTable).toBeVisible();
+
 }
