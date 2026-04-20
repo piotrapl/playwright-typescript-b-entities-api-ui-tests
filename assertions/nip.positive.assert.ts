@@ -18,4 +18,14 @@ export class NipPositiveAssertions {
     await expect(this.nipPage.messageLocator).toBeHidden();
     await expect(this.nipPage.resultsTable).toBeVisible();
 
+     // asercje dotyczące wyników wyszukiwania - 
+    // czy tabela wyników zawiera co najmniej 1 wiersz z danymi, 
+    // i czy tekst w pierwszym wierszu nie jest pusty.
+    const rowsCount = await this.nipPage.resultsRows.count();
+    expect(rowsCount).toBeGreaterThan(0);
+
+    const firstRowText = (await this.nipPage.resultsRows.first().innerText()).trim();
+    expect(firstRowText).not.toBe('');
+  }
+
 }
