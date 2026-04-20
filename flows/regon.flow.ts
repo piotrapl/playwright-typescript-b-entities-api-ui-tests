@@ -1,42 +1,27 @@
-import { RegonPage } from '../pages/regon.page';
-import { RegonAssertions } from '../assertions/regon.assert';
 import { test } from '@playwright/test';
+import { SearchPage } from '../pages/search.page';
+import { RegonAssertions } from '../assertions/regon.assert';
 
 export class RegonFlow {
+  constructor(private searchPage: SearchPage) {}
 
-    constructor ( private regonPage: RegonPage) {}
+  async searchRegonAndVerify(regon: string) {
+    await test.step('Otwórz stronę wyszukiwania po REGON-ie', async () => {
+      await this.searchPage.open();
+    });
 
-    async searchRegonAndVerify(regon: string) {
+    let apiResponse;
 
-        await test.step('Otwórz stronę wyszukiwania po REGON-ie', async () => {
-           await this.regonPage.open();
-        });
-        // 'let ApiResponse' to jest zmienna, która będzie przechowywać odpowiedź z API po wysłaniu zapytania o REGON.
-        // "let" to jest słowo kluczowe w JavaScript do deklaracji zmiennej, 
-        //      która może być przypisana do różnych wartości w trakcie działania programu.
-        let apiResponse;
+    await test.step('Wyszukaj REGON i pobierz odpowiedź z backendu', async () => {
+      apiResponse = await this.searchPage.searchRegon(regon);
+    });
 
-        // To jest blok kodu, który wykonuje krok testowy, w którym wyszukujemy REGON i pobieramy odpowiedź z backendu.
-        // nie jest to metoda testowa, ale jest to część większego reużywalnego procesu testowego
-        await test.step(`Wyszukaj REGON i pobierz odpowiedź z backendu`, async () => {
-            apiResponse = await this.regonPage.searchRegon(regon);
-        });
+    let uiMessage;
 
-        let uiMessage;
+    await test.step('Pobierz wiadomość z UI', async () => {
+      uiMessage = await this.searchPage.captureMessage();
+    });
 
-        // Krok, w którym: pobieramy wiadomość z interfejsu użytkownika (UI) po wyszukaniu REGON.
-        await test.step('Pobierz wiadomość z UI', async () => {
-            uiMessage = await this.regonPage.captureMessage();
-        });
-
-        // znak wykrzyknika "!" po nazwie zmiennej - operator non-null assertion w TypeScript, 
-        // który mówi kompilatorowi, że zmienna nie jest null ani undefined w tym miejscu kodu. 
-        // Oznacza to, że programista jest pewien, że te zmienne mają wartość 
-        // i nie będą powodować błędu podczas wykonywania asercji
-
-        // return - ten blok kodu tworzy nową instancję klasy RegonAssertions,
-        return new RegonAssertions(uiMessage!, apiResponse!);
-
-        }
-
+    return new RegonAssertions(uiMessage!, apiResponse!);
+  }
 }
