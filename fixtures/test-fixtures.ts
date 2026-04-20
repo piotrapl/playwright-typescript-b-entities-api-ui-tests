@@ -11,11 +11,13 @@ import { RegonPositiveFlow } from '../flows/regon.positive.flow';
 
 import { NipPage } from '../pages/nip.page';
 import { NipFlow } from '../flows/nip.flow';
+import { NipPositiveFlow } from '../flows/nip.positive.flow';
 
 type Fixtures = {
     regonFlow: RegonFlow;
     nipFlow: NipFlow;
     regonPositiveFlow: RegonPositiveFlow;
+    nipPositiveFlow: NipPositiveFlow;
 }
 
 // test - to funkcja, która pozwala nam definiować nasze własne testy, ozszerzenie bazowego testu z Playwright.
@@ -50,13 +52,19 @@ export const test = base.extend<Fixtures>({
 // nipFlow: async ({ page }, use) => { - to kolejne fixture, które tworzy instancję klasy `NipPage` i `NipFlow`, a następnie udostępnia `nipFlow` do użycia w testach. Dzięki temu możemy korzystać z metod i funkcji zdefiniowanych w `NipFlow` w naszych testach, które importują ten fixture.
     nipFlow: async ({ page }, use) => {
     
-    const nipPage = new NipPage(page);
-    const nipFlow = new NipFlow(nipPage);
+        const nipPage = new NipPage(page);
+        const nipFlow = new NipFlow(nipPage);
 
     await use(nipFlow);
+  },
+    nipPositiveFlow: async ({ page }, use) => {
+    
+        const nipPage = new NipPage(page);
+        const nipPositiveFlow = new NipPositiveFlow(nipPage);
+
+    await use(nipPositiveFlow);
   }
 });
-
 
 // hook `afterEach`, który będzie wykonywany po każdym teście.
 // arrow function ma 2 argumenty: `regonFlow` (nasze fixture) 

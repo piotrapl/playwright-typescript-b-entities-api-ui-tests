@@ -9,6 +9,20 @@ export class NipPage {
 
     constructor (private page: Page) {}
 
+    // to są gettery (metody dostępowe) - metody pozwalające 
+    // na łatwy dostęp do elementów strony
+    get messageLocator(): Locator {
+        return this.page.locator('#divInfoKomunikat');
+    }
+
+    get resultsTable(): Locator {
+        return this.page.locator('#divListaJednostek');
+    }
+
+    get resultsRows(): Locator {
+        return this.resultsTable.locator('tr').filter({ hasText: /\S/ });
+    }
+
     async open() {
 
         await this.page.goto(ENV.baseURL);
