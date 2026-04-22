@@ -1,4 +1,4 @@
-import { test } from '../fixtures/test-fixtures';
+import { test } from '../../fixtures/test-fixtures';
 import { invalidNips } from '../../data/invalid-nips';
 
 for (const dataset of invalidNips) {
