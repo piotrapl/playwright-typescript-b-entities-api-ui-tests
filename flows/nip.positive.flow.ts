@@ -16,7 +16,7 @@ export class NipPositiveFlow {
     });
 
     return new NipPositiveAssertions(
-      this.nipPage,
+      uiMessage!,
       apiResponse!
     );
   }

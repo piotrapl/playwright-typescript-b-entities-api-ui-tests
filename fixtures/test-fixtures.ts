@@ -1,15 +1,11 @@
-// polecenia importujące różne moduły i klasy, które będziemy wykorzystywać w testach. 
-// Tu - importujemy test z biblioteki Playwright, allure z biblioteki allure-playwright 
-// i nasze własne klasy RegonPage i RegonFlow, 
-
 import { test as base } from '@playwright/test';
-import { allure } from 'allure-playwright'
+import { allure } from 'allure-playwright';
 
-import { RegonPage } from '../pages/regon.page';
+import { SearchPage } from '../pages/search.page';
+
 import { RegonFlow } from '../flows/regon.flow';
 import { RegonPositiveFlow } from '../flows/regon.positive.flow';
 
-import { NipPage } from '../pages/nip.page';
 import { NipFlow } from '../flows/nip.flow';
 import { NipPositiveFlow } from '../flows/nip.positive.flow';
 
@@ -34,35 +30,28 @@ type Fixtures = {
 //  przekazując do niej obiekt `page`
 
 export const test = base.extend<Fixtures>({
+
     regonFlow: async ({ page }, use) => {
-
-        const regonPage = new RegonPage(page);
-        const regonFlow = new RegonFlow(regonPage);
-
+        const searchPage = new SearchPage(page);
+        const regonFlow = new RegonFlow(searchPage);
         await use(regonFlow);
     },
 
     regonPositiveFlow: async ({ page }, use) => {
-
-        const regonPage = new RegonPage(page);
-        const regonPositiveFlow = new RegonPositiveFlow(regonPage);
-
+        const searchPage = new SearchPage(page);
+        const regonPositiveFlow = new RegonPositiveFlow(searchPage);
         await use(regonPositiveFlow);
     },
 // nipFlow: async ({ page }, use) => { - to kolejne fixture, które tworzy instancję klasy `NipPage` i `NipFlow`, a następnie udostępnia `nipFlow` do użycia w testach. Dzięki temu możemy korzystać z metod i funkcji zdefiniowanych w `NipFlow` w naszych testach, które importują ten fixture.
-    nipFlow: async ({ page }, use) => {
-    
-        const nipPage = new NipPage(page);
-        const nipFlow = new NipFlow(nipPage);
-
-    await use(nipFlow);
+    nipFlow: async ({ page }, use) => {   
+        const searchPage = new SearchPage(page);
+        const nipFlow = new NipFlow(searchPage);
+        await use(nipFlow);
   },
-    nipPositiveFlow: async ({ page }, use) => {
-    
-        const nipPage = new NipPage(page);
-        const nipPositiveFlow = new NipPositiveFlow(nipPage);
-
-    await use(nipPositiveFlow);
+    nipPositiveFlow: async ({ page }, use) => {    
+        const searchPage = new SearchPage(page);
+        const nipPositiveFlow = new NipPositiveFlow(searchPage);
+        await use(nipPositiveFlow);
   }
 });
 
