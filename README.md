@@ -8,7 +8,8 @@ Projekt demonstracyjny automatyzacji testów wykorzystujący **Playwright + Type
 Testy realizują podejście **cross-layer testing**, w którym działania użytkownika w interfejsie są weryfikowane poprzez dane zwracane przez API.  
 Pozwala to wykrywać błędy szybciej i zwiększać wiarygodność testów.  
 Projekt zawiera również raportowanie **Allure** z artefaktami testowymi (screenshots, trace).
-Raport HTML wygenerowany przy uruchomieniu CI workflow, zostaje publikowany na GitHub (URL poniżej, zawsze dostępny tylko raport z ostaniego wykonaprzebiegu):
+Raport HTML wygenerowany w ostatnim uruchomieniu CI workflow - opublikowany na GitHub (URL poniżej):
+
 https://piotrapl.github.io/playwright-typescript-b-entities-api-ui-tests/
 
 ---
