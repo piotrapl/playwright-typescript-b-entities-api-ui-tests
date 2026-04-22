@@ -1,10 +1,10 @@
 import { expect } from '@playwright/test';
 import { ApiResponse } from '../types/api.types';
-import { NipPage } from '../pages/nip.page';
+import { SearchPage } from '../pages/search.page';
 
 export class NipPositiveAssertions {
   constructor(
-    private nipPage: NipPage,
+    private searchPage: SearchPage,
     private apiResponse: ApiResponse
   ) {}
 
@@ -15,16 +15,16 @@ export class NipPositiveAssertions {
     expect(body.d).toBeTruthy();
     expect(body.d).not.toBe('');
 
-    await expect(this.nipPage.messageLocator).toBeHidden();
-    await expect(this.nipPage.resultsTable).toBeVisible();
+    await expect(this.searchPage.messageLocator).toBeHidden();
+    await expect(this.searchPage.resultsTable).toBeVisible();
 
      // asercje dotyczące wyników wyszukiwania - 
     // czy tabela wyników zawiera co najmniej 1 wiersz z danymi, 
     // i czy tekst w pierwszym wierszu nie jest pusty.
-    const rowsCount = await this.nipPage.resultsRows.count();
+    const rowsCount = await this.searchPage.resultsRows.count();
     expect(rowsCount).toBeGreaterThan(0);
 
-    const firstRowText = (await this.nipPage.resultsRows.first().innerText()).trim();
+    const firstRowText = (await this.searchPage.resultsRows.first().innerText()).trim();
     expect(firstRowText).not.toBe('');
   }
 

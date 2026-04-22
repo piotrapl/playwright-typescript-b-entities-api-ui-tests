@@ -17,13 +17,13 @@ export class RegonPositiveAssertions {
     expect(body.d).toBeTruthy();
     expect(body.d).not.toBe('');
 
-    await expect(this.regonPage.messageLocator).toBeHidden();
-    await expect(this.regonPage.resultsTable).toBeVisible();
+    await expect(this.searchPage.messageLocator).toBeHidden();
+    await expect(this.searchPage.resultsTable).toBeVisible();
 
-    const rowsCount = await this.regonPage.resultsRows.count();
+    const rowsCount = await this.searchPage.resultsRows.count();
     expect(rowsCount).toBeGreaterThan(0);
 
-    const firstRowText = (await this.regonPage.resultsRows.first().innerText()).trim();
+    const firstRowText = (await this.searchPage.resultsRows.first().innerText()).trim();
     expect(firstRowText).not.toBe('');
   }
 }
