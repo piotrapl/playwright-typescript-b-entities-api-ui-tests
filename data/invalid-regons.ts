@@ -7,8 +7,11 @@ export const invalidRegons = [
     {
         regon: '162537906',
         description: '9-cyfrowy poprawny REGON ale bez powiązań z istniejacymi podmiotami'
-    },
-    
+    } 
+]
+
+export const invalidLongRegons = [
+
     {
         regon: '03458707137040',
         description: '14-cyfrowy poprawny REGON ale bez powiązań z istniejacymi podmiotami'
