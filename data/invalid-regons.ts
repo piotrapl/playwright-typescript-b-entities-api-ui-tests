@@ -6,12 +6,12 @@ export const invalidRegons = [
 
     {
         regon: '162537906',
-        description: 'REGON poprawny ale bez powiązań z istniejacymi podmiotami'
+        description: '9-cyfrowy poprawny REGON ale bez powiązań z istniejacymi podmiotami'
     },
     
     {
-        regon: '664408741',
-        description: 'REGON poprawny ale bez powiązań z istniejacymi podmiotami'
+        regon: '03458707137040',
+        description: '14-cyfrowy poprawny REGON ale bez powiązań z istniejacymi podmiotami'
     }   
 
 ]
