@@ -8,6 +8,8 @@ Projekt demonstracyjny automatyzacji testów wykorzystujący **Playwright + Type
 Testy realizują podejście **cross-layer testing**, w którym działania użytkownika w interfejsie są weryfikowane poprzez dane zwracane przez API.  
 Pozwala to wykrywać błędy szybciej i zwiększać wiarygodność testów.  
 Projekt zawiera również raportowanie **Allure** z artefaktami testowymi (screenshots, trace).
+Raport HTML wygenerowany przy uruchomieniu CI workflow, zostaje publikowany na GitHub (URL poniżej, zawsze dostępny tylko raport z ostaniego wykonaprzebiegu):
+https://piotrapl.github.io/playwright-typescript-b-entities-api-ui-tests/
 
 ---
 ## Core Features and Implementation Details
@@ -56,14 +58,9 @@ Senarios implemented:
 • Prefer getByRole, getByLabel over #id
 • Make tests more resilient to UI changes
 • Reduce flakiness and maintenance cost
-### 5. Add positive test scenarios
-• Cover valid REGON and NIP searches
-• Verify full UI + API data consistency
-• Increase real-world test coverage
 ### 6. Extend reporting (Allure)
 • Add steps, API data, and attachments
 • Improve debugging and traceability
-• Stronger presentation in portfolio
 
 ## How to run the tests
 npm install
