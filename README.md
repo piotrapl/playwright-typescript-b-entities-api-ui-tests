@@ -1,8 +1,8 @@
 Cross-layer Playwright testing combining **UI validation with API verification** to detect defects earlier and increase test reliability.
 
 ---
-
-## Abstract (po polsku)
+_in polish_
+## Podsumowanie
 
 Projekt demonstracyjny automatyzacji testów wykorzystujący **Playwright + TypeScript** do testowania wyszukiwania numeru **REGON**.  
 Testy realizują podejście **cross-layer testing**, w którym działania użytkownika w interfejsie są weryfikowane poprzez dane zwracane przez API.  
@@ -47,21 +47,14 @@ Senarios implemented:
 • Introduce a single search method (type: 'regon' | 'nip')
 • Remove duplicated logic across flows/pages
 • Improve scalability and maintainability
-### 2. Introduce shared SearchPage
-• Replace multiple Page Objects with one reusable component
-• Centralize selectors and actions for all identifiers
-• Simplifies structure and future extensions
-### 3. Strengthen TypeScript typing
+### 2. Strengthen TypeScript typing
 • Use generic API types (ApiResponse<T>)
 • Eliminate any and enforce strict typing
 • Improves reliability and developer experience
-### 4. Improve selector strategy
+### 3. Improve selector strategy
 • Prefer getByRole, getByLabel over #id
 • Make tests more resilient to UI changes
 • Reduce flakiness and maintenance cost
-### 6. Extend reporting (Allure)
-• Add steps, API data, and attachments
-• Improve debugging and traceability
 
 ## How to run the tests
 npm install
