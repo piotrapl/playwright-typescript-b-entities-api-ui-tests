@@ -1,50 +1,31 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import { ENV } from '../utils/env';
 import { ApiResponse } from '../types/api.types';
+
+export type SearchType = 'regon' | 'nip';
 
 export class SearchPage {
   constructor(private page: Page) {}
 
-    get messageLocator(): Locator {
-        return this.page.locator('#divInfoKomunikat');
-    }
+  get messageLocator(): Locator {
+    return this.page.locator('#divInfoKomunikat');
+  }
 
-    get resultsTable(): Locator {
-        return this.page.locator('#divListaJednostek');
-    }
+  get resultsTable(): Locator {
+    return this.page.locator('#divListaJednostek');
+  }
 
-    get resultsRows(): Locator {
-        return this.resultsTable.locator('tr').filter({ hasText: /\S/ });
-    }
+  get resultsRows(): Locator {
+    return this.resultsTable.locator('tr').filter({ hasText: /\S/ });
+  }
 
-  async open() {
+  async open(): Promise<void> {
     await this.page.goto(ENV.baseURL);
     await this.page.getByLabel('NIP', { exact: true }).waitFor();
   }
 
-  async searchRegon(regon: string): Promise<ApiResponse> {
-    await this.page.locator('#txtRegon').fill(regon);
-
-    const responsePromise = this.page.waitForResponse(
-      response =>
-        response.url().includes('daneSzukaj') &&
-        response.request().method() === 'POST'
-    );
-
-    await this.page.locator('#btnSzukaj').click();
-
-    const response = await responsePromise;
-    const body = await response.json();
-
-    return {
-      status: response.status(),
-      body
-    };
-  }
-
-  async searchByNip(nip: string): Promise<ApiResponse> {
-    const nipInput = this.page.getByLabel('NIP', { exact: true });
-    await nipInput.fill(nip);
+  async searchBy(type: SearchType, value: string): Promise<ApiResponse> {
+    await this.getInput(type).fill(value);
 
     const responsePromise = this.page.waitForResponse(
       response =>
@@ -64,8 +45,15 @@ export class SearchPage {
   }
 
   async captureMessage(): Promise<string> {
-    const messageLocator = this.page.locator('#divInfoKomunikat');
-    await messageLocator.waitFor();
-    return await messageLocator.innerText();
+    await this.messageLocator.waitFor();
+    return await this.messageLocator.innerText();
+  }
+
+  private getInput(type: SearchType): Locator {
+    if (type === 'regon') {
+      return this.page.locator('#txtRegon');
+    }
+
+    return this.page.getByLabel('NIP', { exact: true });
   }
 }
