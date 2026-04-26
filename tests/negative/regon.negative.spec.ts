@@ -8,7 +8,7 @@ for (const dataset of invalidRegons) {
 
         const result = await regonFlow.searchRegonAndVerify(dataset.regon);
 
-        result.assert();
+        await  result.assert();
 
   });
 
@@ -21,7 +21,7 @@ for (const dataset of invalidLongRegons) {
 
         const result = await regonFlow.searchRegonAndVerify(dataset.regon);
 
-        result.assert();
+        await result.assert();
 
   });
 

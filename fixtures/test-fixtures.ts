@@ -2,80 +2,41 @@ import { test as base } from '@playwright/test';
 import { allure } from 'allure-playwright';
 
 import { SearchPage } from '../pages/search.page';
-
-import { RegonFlow } from '../flows/regon.flow';
-import { RegonPositiveFlow } from '../flows/regon.positive.flow';
-
-import { NipFlow } from '../flows/nip.flow';
-import { NipPositiveFlow } from '../flows/nip.positive.flow';
+import { NegativeFlow } from '../flows/negative.flow';
+import { PositiveFlow } from '../flows/positive.flow';
 
 type Fixtures = {
-    regonFlow: RegonFlow;
-    nipFlow: NipFlow;
-    regonPositiveFlow: RegonPositiveFlow;
-    nipPositiveFlow: NipPositiveFlow;
-}
-
-// test - to funkcja, która pozwala nam definiować nasze własne testy, ozszerzenie bazowego testu z Playwright.
-
-// Tu - eksportujemy naszą rozszerzoną wersję test, 
-// która zawiera nasze własne fixture'y. Wtedy możemy korzystać z nich w naszych testach, 
-// importując ten plik i używając `test` zamiast `base`.
-
-// base.extend<Fixtures> -  metoda, która pozwalalająca rozszerzyć bazowy test o nasze fixture'y.
-// <Fixtures> - to typ, który definiuje strukturę naszych fixture'ów. 
-// tu jest tylko jeden fixture o nazwie `regonFlow`, który jest typu `RegonFlow`.
-
-// "const regonPage" - deklaracja zmiennej, która tworzy nową instancję klasy `RegonPage`,
-//  przekazując do niej obiekt `page`
+  negativeFlow: NegativeFlow;
+  positiveFlow: PositiveFlow;
+};
 
 export const test = base.extend<Fixtures>({
+  negativeFlow: async ({ page }, use) => {
+    const searchPage = new SearchPage(page);
+    const negativeFlow = new NegativeFlow(searchPage);
 
-    regonFlow: async ({ page }, use) => {
-        const searchPage = new SearchPage(page);
-        const regonFlow = new RegonFlow(searchPage);
-        await use(regonFlow);
-    },
-
-    regonPositiveFlow: async ({ page }, use) => {
-        const searchPage = new SearchPage(page);
-        const regonPositiveFlow = new RegonPositiveFlow(searchPage);
-        await use(regonPositiveFlow);
-    },
-// nipFlow: async ({ page }, use) => { - to kolejne fixture, które tworzy instancję klasy `NipPage` i `NipFlow`, a następnie udostępnia `nipFlow` do użycia w testach. Dzięki temu możemy korzystać z metod i funkcji zdefiniowanych w `NipFlow` w naszych testach, które importują ten fixture.
-    nipFlow: async ({ page }, use) => {   
-        const searchPage = new SearchPage(page);
-        const nipFlow = new NipFlow(searchPage);
-        await use(nipFlow);
+    await use(negativeFlow);
   },
-    nipPositiveFlow: async ({ page }, use) => {    
-        const searchPage = new SearchPage(page);
-        const nipPositiveFlow = new NipPositiveFlow(searchPage);
-        await use(nipPositiveFlow);
+
+  positiveFlow: async ({ page }, use) => {
+    const searchPage = new SearchPage(page);
+    const positiveFlow = new PositiveFlow(searchPage);
+
+    await use(positiveFlow);
   }
 });
 
-// hook `afterEach`, który będzie wykonywany po każdym teście.
-// arrow function ma 2 argumenty: `regonFlow` (nasze fixture) 
-// i `testInfo` (obiekt zawierający informacje o właśnie zakończonym teście, który właśnie się zakończył).
-
-// async ({ page }, testInfo) => { - to funkcja asynchroniczna (arrow function), \
-// wołana po każdym teście, przyjmująca obiekt z właściwością `page` 
-// (reprezentującą stronę przeglądarki) i `testInfo` (zawierający informacje o teście).
 test.afterEach(async ({ page }, testInfo) => {
+  const screenshot = await page.screenshot();
 
-    const screenshot = await page.screenshot();
+  await testInfo.attach('screenshot', {
+    body: screenshot,
+    contentType: 'image/png'
+  });
 
-    await testInfo.attach('screenshot', {
-        body: screenshot,
-        contentType: 'image/png'
-    });
-
-    await allure.attachment(
-        'screenshot',
-        screenshot,
-        'image/png'
-    );
-
+  await allure.attachment(
+    'screenshot',
+    screenshot,
+    'image/png'
+  );
 });
-    
