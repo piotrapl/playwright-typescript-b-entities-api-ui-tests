@@ -1,5 +1,5 @@
 {
-    "name": "playwright-typescript-entities-api-ui-tests",
+    "name": "playwright-typescript-b-entities-api-ui-tests",
     "version": "1.0.0",
     "scripts": {
         "test": "playwright test",
@@ -12,11 +12,12 @@
     "devDependencies": {
         "@playwright/test": "^1.58.2",
         "@types/node": "^25.5.0",
+        "allure-commandline": "^2.34.0",
         "allure-playwright": "^2.0.0",
         "ts-node": "^10.9.2",
         "typescript": "^5.9.3"
     },
-    "description": "Playwright | TypeScript",
+    "description": "Cross-layer UI and API tests for REGON/NIP search using Playwright and TypeScript",
     "main": "index.js",
     "directories": {
         "test": "tests"
