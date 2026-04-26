@@ -1,8 +1,8 @@
 // Lista numerów REGON, 
 // do sprawdzania w testach, jak aplikacja radzi sobie 
 // gdy podamy REGON, który nie istnieje w systemach GUS
-// Typ danych invalidRegons - tablica mogąca zawierać różne wartości,
-export const invalidRegons = [
+// Typ danych nonExistingRegons - tablica mogąca zawierać różne wartości,
+export const nonExistingShortRegons = [
 
     {
         regon: '162537906',
@@ -10,7 +10,7 @@ export const invalidRegons = [
     } 
 ]
 
-export const invalidLongRegons = [
+export const nonExistingLongRegons = [
 
     {
         regon: '03458707137040',

@@ -1,4 +1,4 @@
-export const invalidKrsNumbers = [
+export const nonExistingKrsNumbers = [
 
     {
         krs: '0011063198',

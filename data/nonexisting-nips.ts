@@ -1,7 +1,7 @@
 // data/invalid-nips.ts
 
-// invalidNips - to jest tablica obiektów, gdzie każdy obiekt reprezentuje nieprawidłowy NIP
-export const invalidNips = [
+// nonExistingNips - to jest tablica obiektów, gdzie każdy obiekt reprezentuje nieprawidłowy NIP
+export const nonExistingNips = [
 
     {
         nip: '0755056162',
