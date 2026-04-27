@@ -1,7 +1,7 @@
 import { test } from '../../fixtures/test-fixtures';
-import { validNips } from '../../data/existing-nips';
+import { existingNips } from '../../data/existing-nips';
 
-for (const dataset of validNips) {
+for (const dataset of existingNips) {
   test(`NIP positive search: ${dataset.nip}`, async ({ positiveFlow }) => {
     const result = await positiveFlow.searchValid('nip', dataset.nip);
 
