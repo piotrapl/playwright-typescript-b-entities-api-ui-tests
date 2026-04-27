@@ -1,7 +1,7 @@
 import { test } from '../../fixtures/test-fixtures';
-import { invalidRegons, invalidLongRegons } from '../../data/nonexisting-regons';
+import { nonExistingShortRegons, nonExistingLongRegons } from '../../data/nonexisting-regons';
 
-for (const dataset of invalidRegons) {
+for (const dataset of nonExistingShortRegons) {
   test(`REGON negative search: ${dataset.regon}`, async ({ negativeFlow }) => {
     const result = await negativeFlow.searchInvalid('regon', dataset.regon);
 
