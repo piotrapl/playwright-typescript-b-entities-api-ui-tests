@@ -37,17 +37,19 @@ import { ENV } from './utils/env';
 
 export default defineConfig({
   testDir: './tests',
-
+/*
   timeout: 30_000,
 
   expect: {
     timeout: 5_000
   },
-
+*/
   fullyParallel: true,
-
+// forbidOnly - oznacza, że jeśli w kodzie testów znajduje się jakiekolwiek test.only, 
+// to testy nie zostaną uruchomione i zostanie zgłoszony błąd. 
+// (zapobiega przypadkowemu uruchomieniu tylko jednego testu podczas pracy nad testami).
   forbidOnly: !!process.env.CI,
-
+// 
   retries: process.env.CI ? 1 : 0,
 
   workers: process.env.CI ? 2 : undefined,
