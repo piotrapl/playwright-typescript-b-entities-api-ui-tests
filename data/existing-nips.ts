@@ -1,5 +1,5 @@
 export const existingNips = [
   {
-    nip: '0000660949' // istnieje podmiot o takim krs    
+    nip: '6770072027' // istnieje podmiot o takim krs    
   }
 ]
