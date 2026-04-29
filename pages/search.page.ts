@@ -54,6 +54,11 @@ export class SearchPage {
       return this.page.locator('#txtRegon');
     }
 
-    return this.page.getByLabel('NIP', { exact: true });
+    if (type === 'nip') {
+      return this.page.getByLabel('NIP', { exact: true });
+    }
+
+    return this.page.locator('#txtKrs');
   }
 }
+
