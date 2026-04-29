@@ -5,7 +5,13 @@ export const nonExistingNips = [
 
     {
         nip: '0755056162',
-        description: 'NIP poprawny ale bez powiązań z istniejacymi podmiotami'
+        description: 'Poprawny NIP ale bez powiązań z istniejacymi podmiotami'
+    },
+    
+    {
+        nip: '2433764049',
+        description: 'Poprawny NIP ale bez powiązań z istniejacymi podmiotami'
     }
+
     
 ]
