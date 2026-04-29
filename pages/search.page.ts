@@ -2,7 +2,7 @@ import { Locator, Page } from '@playwright/test';
 import { ENV } from '../utils/env';
 import { ApiResponse } from '../types/api.types';
 
-export type SearchType = 'regon' | 'nip';
+export type SearchType = 'regon' | 'nip' | 'krs';
 
 export class SearchPage {
   constructor(private page: Page) {}

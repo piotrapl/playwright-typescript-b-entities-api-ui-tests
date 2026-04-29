@@ -1,5 +1,5 @@
 import { test } from '../../fixtures/test-fixtures';
-import { existingKrsNumbers } from '../../data/existing-krsumbers';
+import { existingKrsNumbers } from '../../data/existing-krsnumbers';
 
 for (const dataset of existingKrsNumbers) {
   test(`KRS positive search: ${dataset.krs}`, async ({ positiveFlow }) => {
