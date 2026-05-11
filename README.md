@@ -9,7 +9,6 @@ Testy realizują podejście **cross-layer testing**, w którym działania użytk
 Pozwala to wykrywać błędy szybciej i zwiększać wiarygodność testów.  
 Projekt zawiera również raportowanie **Allure** z artefaktami testowymi (screenshots, trace).
 Raport HTML wygenerowany w ostatnim uruchomieniu CI workflow - opublikowany na GitHub (URL poniżej):
-
 https://piotrapl.github.io/playwright-typescript-b-entities-api-ui-tests/
 ---
 ## Why Playwright Fits This Project Well
