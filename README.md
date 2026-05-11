@@ -16,8 +16,8 @@ https://piotrapl.github.io/playwright-typescript-b-entities-api-ui-tests/
 - Native API interception and waitForResponse() make cross-layer UI + backend verification simple and reliable.
 - Strong TypeScript support improves maintainability through typed flows, fixtures, and API response models.
 - Auto-waiting and resilient locators reduce flaky tests on dynamic government search pages.
-= Fixtures and parallel execution help scale reusable REGON, NIP, and KRS test flows cleanly.
-= Built-in HTML reports, screenshots, traces, and CI integration provide enterprise-style debugging and visibility.
+- Fixtures and parallel execution help scale reusable REGON, NIP, and KRS test flows cleanly.
+- Built-in HTML reports, screenshots, traces, and CI integration provide enterprise-style debugging and visibility.
 ---
 ## Core Features and Implementation Details
 • Playwright + TypeScript test framework for cross-layer (UI + API) validation  
