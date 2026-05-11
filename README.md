@@ -11,6 +11,7 @@ Projekt zawiera również raportowanie **Allure** z artefaktami testowymi (scree
 Raport HTML wygenerowany w ostatnim uruchomieniu CI workflow - opublikowany na GitHub (URL poniżej):
 
 https://piotrapl.github.io/playwright-typescript-b-entities-api-ui-tests/
+
 ---
 ## Why Playwright Fits This Project Well
 - Native API interception and waitForResponse() make cross-layer UI + backend verification simple and reliable.
